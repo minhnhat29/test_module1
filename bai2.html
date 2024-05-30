@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Phân số 1</p>
+Tử số: <input type="text" id="ts1"><br>
+Mẫu số: <input type="text" id="ms1"><br>
+
+<p><strong>Phân số 2</strong></p>
+Tử số: <input type="text" id="ts2"><br>
+Mẫu số: <input type="text" id="ms2"><br>
+
+<button onclick="kiemTra()">Kiểm Tra</button>
+
+<h2>Kết quả</h2>
+<p id="ketQua"></p>
+
+</body>
+<script>
+    function soSanh(a,b,c,d){
+        if (a*d===b*c){
+            return "true"
+        } else {
+            return "false"
+        }
+    }
+
+
+    function kiemTra() {
+        const ts1 = Number(document.getElementById('ts1').value);
+        const ms1 = Number(document.getElementById('ms1').value);
+        const ts2 = Number(document.getElementById('ts2').value);
+        const ms2 = Number(document.getElementById('ms2').value);
+        const ketQua = soSanh(ts1, ms1, ts2, ms2);
+        document.write(ketQua)
+    }
+</script>
+</html>

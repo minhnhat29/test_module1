@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nhập mảng số nguyên và lọc số nguyên tố</h1>
+<input type="text" id="aInput" placeholder="Nhập theo cú pháp: 1,2,3,4">
+<button onclick="processArray()">Nhập</button>
+
+<h2>Mảng A</h2>
+<p id="aArray"></p>
+
+<h2>Mảng B</h2>
+<p id="bArray"></p>
+</body>
+<script>
+    function isPrime(num) {
+        if (num <= 1) return false;
+        if (num <= 3) return true;
+        if (num % 2 === 0 || num % 3 === 0) return false;
+        for (let i = 5; i * i <= num; i += 6) {
+            if (num % i === 0 || num % (i + 2) === 0) return false;
+        }
+        return true;
+    }
+
+    function processArray() {
+        const input = document.getElementById('aInput').value;
+        const array = input.split(',').map(Number);
+        if (array.length > 50) {
+            alert("Mảng vượt quá 50 phần tử");
+        } else {
+            document.getElementById('aArray').textContent = array.join(', ');
+            const primeArray = array.filter(isPrime);
+            document.getElementById('bArray').textContent = primeArray.join(', ');
+        }
+    }
+</script>
+</html>
